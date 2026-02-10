@@ -1,6 +1,6 @@
 import Navbar from '@/components/Nav'
 import Footer from '@/components/footer'
-import Link from 'next/link'
+
 
 export default function TermsPage() {
   return (

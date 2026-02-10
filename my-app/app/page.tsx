@@ -14,7 +14,7 @@ export default function Home() {
         <video autoPlay loop muted playsInline className="h-full w-full object-cover opacity-60">
           <source src="/video/hero.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 flex flex-col justify-end items-end p-12 md:p-24 bg-gradient-to-t from-black via-transparent">
+        <div className="absolute inset-0 flex flex-col justify-end items-end p-12 md:p-24 bg-linear-to-t from-black via-transparent">
           <h2 className="text-[11px] font-bold tracking-[0.4em] uppercase mb-4 text-white/90">
             Explore the Collective
           </h2>

@@ -8,7 +8,9 @@ export default function Home() {
     <div>
       <Navbar />
       <AboutHero />
-      <AboutText />
+      <section className="bg-black">
+        <AboutText />
+      </section>
       <Footer />
     </div>
   )

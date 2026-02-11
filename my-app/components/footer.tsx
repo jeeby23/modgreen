@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="max-w-screen-2xl mx-auto px-6 md:px-12 py-6">
             <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-6 md:gap-0 text-center">
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-                <Link href="#" className="hover:text-white/90 transition-colors">
+                <Link href="/about" className="hover:text-white/90 transition-colors">
                   ABOUT US
                 </Link>
                 <button onClick={openModal} className="hover:text-white/90 transition-colors">

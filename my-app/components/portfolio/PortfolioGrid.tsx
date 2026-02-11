@@ -1,5 +1,4 @@
-// components/portfolio/PortfolioGrid.tsx
-'use client'
+ 'use client'
 
 import { useState } from 'react'
 import { usePortfolioData } from '../../hooks/usePortfolioData' 

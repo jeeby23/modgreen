@@ -1,12 +1,11 @@
-// components/Footer.tsx
 'use client'
 
 import { useState } from 'react'
 import Link from 'next/link'
-import ContactModal from './contact/ContactModal'  // ✅ ADDED: Import the modal
+import ContactModal from './contact/ContactModal'
 
 export default function Footer() {
-  const [isModalOpen, setIsModalOpen] = useState(false)  // ✅ ADDED: State for modal
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const openModal = () => setIsModalOpen(true)
   const closeModal = () => setIsModalOpen(false)
@@ -21,10 +20,7 @@ export default function Footer() {
                 <Link href="#" className="hover:text-white/90 transition-colors">
                   ABOUT US
                 </Link>
-                <button
-                  onClick={openModal}  // ✅ CHANGED: Opens modal instead of navigating
-                  className="hover:text-white/90 transition-colors"
-                >
+                <button onClick={openModal} className="hover:text-white/90 transition-colors">
                   CONTACT
                 </button>
                 <Link href="/FAQ" className="hover:text-white/90 transition-colors">
@@ -54,7 +50,6 @@ export default function Footer() {
         </div>
       </footer>
 
-      {/* ✅ ADDED: Render the modal */}
       <ContactModal isOpen={isModalOpen} onClose={closeModal} />
     </>
   )

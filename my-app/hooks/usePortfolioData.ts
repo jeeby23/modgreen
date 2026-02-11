@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { createClient } from 'contentful'
-import type { PortfolioSkeleton, FlattenedImage } from '@/types/portfolio'  
-import { contentTypes } from '@/types/portfolio'  
+import type { PortfolioSkeleton, FlattenedImage } from '@/types/portfolio'
+import { contentTypes } from '@/types/portfolio'
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
@@ -18,7 +18,6 @@ export const usePortfolioData = (activeTab: string) => {
       try {
         setLoading(true)
         const { type } = contentTypes[activeTab]
-
         const response = await client.getEntries<PortfolioSkeleton>({
           content_type: type,
           limit: 100,
@@ -29,9 +28,12 @@ export const usePortfolioData = (activeTab: string) => {
           ...item,
           fields: {
             ...item.fields,
-            images: (item.fields[contentTypes[activeTab].field] as any[])?.map((link: any) =>
-              response.includes?.Asset?.find((asset) => asset.sys.id === link.sys.id)
-            ).filter(Boolean) || [],
+            images:
+              (item.fields[contentTypes[activeTab].field] as any[])
+                ?.map((link: any) =>
+                  response.includes?.Asset?.find((asset) => asset.sys.id === link.sys.id),
+                )
+                .filter(Boolean) || [],
           },
         }))
 
@@ -51,24 +53,25 @@ export const usePortfolioData = (activeTab: string) => {
     if (activeTab === 'ADVENTURES') return true
     const categories = model.fields.category
     if (!categories || categories.length === 0) return true
-    return categories.some((cat: string) =>
-      cat.toLowerCase().includes(activeTab.toLowerCase())
-    )
+    return categories.some((cat: string) => cat.toLowerCase().includes(activeTab.toLowerCase()))
   })
 
   const allImages: FlattenedImage[] = filteredModels.flatMap((model) => {
-    const modelName = activeTab === 'MODEL'
-      ? (model.fields.name?.[0] ?? `Model ${model.sys.id}`)
-      : (model.fields.cities?.[0] ?? 'Adventure')
+    const modelName =
+      activeTab === 'MODEL'
+        ? (model.fields.name?.[0] ?? `Model ${model.sys.id}`)
+        : (model.fields.cities?.[0] ?? 'Adventure')
     const agency = activeTab === 'MODEL' ? model.fields.agency?.[0] : null
-    return model.fields.images?.map((image: any, index: number) => ({
-      image,
-      modelName,
-      agency,
-      modelId: model.sys.id,
-      assetId: image.sys.id,
-      index,
-    })) || []
+    return (
+      model.fields.images?.map((image: any, index: number) => ({
+        image,
+        modelName,
+        agency,
+        modelId: model.sys.id,
+        assetId: image.sys.id,
+        index,
+      })) || []
+    )
   })
 
   return { allImages, loading, error }

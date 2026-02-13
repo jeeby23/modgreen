@@ -3,7 +3,7 @@ import BaseLayout from '@/Layout/BaseLayout'
 export default function AboutText() {
   return (
     <BaseLayout>
-      <section className="w-full bg-black text-white py-16 md:py-24">
+      <section className="w-full max-w-4xl bg-black text-white py-16 md:py-24">
         <div >
           <h2 className="text-xl md:text-2xl font-bold tracking-wide uppercase mb-10 md:mb-12">
             ABOUT ME →

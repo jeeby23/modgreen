@@ -1,4 +1,3 @@
-import BaseLayout from '@/Layout/BaseLayout'
 import Navbar from '@/components/Nav'
 import ModelGrid from '@/components/Home/ModelGrid'
 import BrandHero from '@/components/Home/BrandHero'
@@ -33,7 +32,6 @@ export default function Home() {
 
       <ModelGrid
         modelName="JENNIFER STEWART"
-     
         images={[
           { src: "/image/jess.png" },
           { src: "/image/jessSeven.png" },

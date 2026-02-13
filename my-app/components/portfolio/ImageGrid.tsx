@@ -29,6 +29,8 @@ export default function ImageGrid({ allImages, viewMode }: ImageGridProps) {
                   src={imageUrl}
                   alt={modelName}
                   fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  loading="eager" 
                   className="object-cover transition-transform group-hover:scale-105"
                 />
               </div>
